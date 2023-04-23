@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.UUID;
+
 public final class PlayerJoinListener implements Listener {
     private final Spectator spectator;
 
@@ -14,6 +16,8 @@ public final class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-
+        UUID playerId = event.getPlayer().getUniqueId();
+        if (spectator.getPlayerManager().getExcludedPlayers().contains(playerId)) return;
+        spectator.getPlayerManager().addOnlinePlayer(playerId);
     }
 }

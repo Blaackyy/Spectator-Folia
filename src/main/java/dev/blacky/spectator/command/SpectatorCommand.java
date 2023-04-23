@@ -16,6 +16,7 @@ public final class SpectatorCommand extends BukkitCommand {
 
     @Override
     public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
+        //TODO remove player from online players
         return false;
     }
 

@@ -16,6 +16,8 @@ public final class Spectator extends JavaPlugin {
         this.playerManager = new PlayerManager(this);
         this.cycleManager = new CycleManager(this);
 
+        //TODO load excluded players fron cfg
+
         getServer().getCommandMap().register("spectator", new SpectatorCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
