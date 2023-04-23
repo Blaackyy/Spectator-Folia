@@ -1,0 +1,6 @@
+#Plugin prefix
+prefix: '&8[&6Spectator&8] &7'
+#How much time should the cycle take in seconds before the next player is selected and spectated
+cycle-time: 15
+#List of excluded players, it's automatically filled with the players that choose to not be spectated
+excluded-players: []

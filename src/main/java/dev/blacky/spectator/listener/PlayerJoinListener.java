@@ -19,5 +19,6 @@ public final class PlayerJoinListener implements Listener {
         UUID playerId = event.getPlayer().getUniqueId();
         if (spectator.getPlayerManager().getExcludedPlayers().contains(playerId)) return;
         spectator.getPlayerManager().addOnlinePlayer(playerId);
+        spectator.getPlayerManager().hideSpectatorsTo(event.getPlayer());
     }
 }
