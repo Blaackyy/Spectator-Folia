@@ -2,6 +2,7 @@ package dev.blacky.spectator.manager;
 
 import dev.blacky.spectator.Spectator;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -31,5 +32,13 @@ public final class PlayerManager {
 
     public void removeExcludedPlayer(UUID uuid) {
         excludedPlayers.remove(uuid);
+    }
+
+    public Set<UUID> getOnlinePlayers() {
+        return onlinePlayers;
+    }
+
+    public Set<UUID> getExcludedPlayers() {
+        return excludedPlayers;
     }
 }
