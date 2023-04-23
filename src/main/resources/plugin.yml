@@ -1,0 +1,6 @@
+name: Spectator
+version: '${version}'
+main: dev.blacky.spectator.Spectator
+api-version: 1.19
+folia-supported: true
+authors: [ Blacky ]
