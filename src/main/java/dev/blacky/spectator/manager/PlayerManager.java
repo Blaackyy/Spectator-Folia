@@ -42,6 +42,7 @@ public final class PlayerManager {
 
     public void removeExcludedPlayer(UUID uuid) {
         excludedPlayers.remove(uuid);
+        Config.reAdd(uuid);
     }
 
     public void hideFromTab(Player player, boolean hide) {

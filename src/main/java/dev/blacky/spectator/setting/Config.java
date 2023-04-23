@@ -29,4 +29,10 @@ public final class Config {
         spectator.getConfig().set("excluded-players", EXCLUDED_PLAYERS);
         spectator.saveConfig();
     }
+
+    public static void reAdd(UUID uuid) {
+        EXCLUDED_PLAYERS.add(uuid.toString());
+        spectator.getConfig().set("excluded-players", EXCLUDED_PLAYERS);
+        spectator.saveConfig();
+    }
 }
