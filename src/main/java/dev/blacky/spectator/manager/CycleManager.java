@@ -9,13 +9,12 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minecraft.network.protocol.game.ClientboundSetCameraPacket;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
-import org.bukkit.entity.Boss;
 import org.bukkit.entity.Player;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class CycleManager {
     private final Spectator spectator;
@@ -31,7 +30,7 @@ public final class CycleManager {
         this.spectator = spectator;
         this.playersOnCycle = new HashSet<>();
         this.spectatorBossBars = new HashMap<>();
-        this.currentlySpectating = new HashMap<>();
+        this.currentlySpectating = new ConcurrentHashMap<>();
         this.spectatorData = new HashMap<>();
         this.spectatedPlayers = new HashMap<>();
     }

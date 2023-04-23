@@ -1,11 +1,11 @@
 package dev.blacky.spectator.manager;
 
 import dev.blacky.spectator.Spectator;
+import dev.blacky.spectator.setting.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -33,6 +33,11 @@ public final class PlayerManager {
 
     public void addExcludedPlayer(UUID uuid) {
         excludedPlayers.add(uuid);
+        Config.exclude(uuid);
+    }
+
+    public boolean isExcluded(UUID uuid) {
+        return excludedPlayers.contains(uuid);
     }
 
     public void removeExcludedPlayer(UUID uuid) {
