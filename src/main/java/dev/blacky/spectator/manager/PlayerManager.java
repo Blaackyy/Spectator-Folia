@@ -9,6 +9,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class PlayerManager {
     private final Spectator spectator;
@@ -20,7 +21,7 @@ public final class PlayerManager {
         this.spectator = spectator;
         this.hiddenPlayers = new HashSet<>();
         this.onlinePlayers = new HashSet<>();
-        this.excludedPlayers = new HashSet<>();
+        this.excludedPlayers = ConcurrentHashMap.newKeySet();
     }
 
     public void addOnlinePlayer(UUID uuid) {
@@ -33,7 +34,11 @@ public final class PlayerManager {
 
     public void addExcludedPlayer(UUID uuid) {
         excludedPlayers.add(uuid);
-        Config.exclude(uuid);
+    }
+
+    public void exclude(UUID uuid) {
+        Config.add(uuid);
+        excludedPlayers.add(uuid);
     }
 
     public boolean isExcluded(UUID uuid) {
@@ -42,7 +47,7 @@ public final class PlayerManager {
 
     public void removeExcludedPlayer(UUID uuid) {
         excludedPlayers.remove(uuid);
-        Config.reAdd(uuid);
+        Config.remove(uuid);
     }
 
     public void hideFromTab(Player player, boolean hide) {

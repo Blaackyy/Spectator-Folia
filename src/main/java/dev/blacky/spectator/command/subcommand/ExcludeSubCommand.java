@@ -31,7 +31,7 @@ public class ExcludeSubCommand extends SubCommand {
         }
 
         Message.toPlayer(playerSender, "&aYou are now excluded from the cycle.");
-        spectator.getPlayerManager().addExcludedPlayer(player.getUniqueId());
+        spectator.getPlayerManager().exclude(player.getUniqueId());
 
     }
 

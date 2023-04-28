@@ -24,14 +24,16 @@ public final class Config {
         EXCLUDED_PLAYERS = spectator.getConfig().getStringList("excluded-players");
     }
 
-    public static void exclude(UUID playerId) {
+    public static void add(UUID playerId) {
+        if (EXCLUDED_PLAYERS.contains(playerId.toString())) return;
         EXCLUDED_PLAYERS.add(playerId.toString());
         spectator.getConfig().set("excluded-players", EXCLUDED_PLAYERS);
         spectator.saveConfig();
     }
 
-    public static void reAdd(UUID uuid) {
-        EXCLUDED_PLAYERS.add(uuid.toString());
+    public static void remove(UUID uuid) {
+        if (!EXCLUDED_PLAYERS.contains(uuid.toString())) return;
+        EXCLUDED_PLAYERS.remove(uuid.toString());
         spectator.getConfig().set("excluded-players", EXCLUDED_PLAYERS);
         spectator.saveConfig();
     }

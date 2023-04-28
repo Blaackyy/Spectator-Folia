@@ -21,7 +21,7 @@ public final class SpectatorCommand extends BukkitCommand {
     private final Map<String, SubCommand> subCommandMap;
 
     public SpectatorCommand(Spectator plugin) {
-        super("spectator", "Spectator Commands", "/spectator", List.of("spec"));
+        super("spectator", "Spectator Commands", "/spectator", List.of("spec", "specbot"));
         this.spectator = plugin;
         this.subCommandMap = new HashMap<>();
         this.loadSubCommands();
