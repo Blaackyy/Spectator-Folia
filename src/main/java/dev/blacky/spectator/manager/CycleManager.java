@@ -10,7 +10,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.minecraft.network.protocol.game.ClientboundSetCameraPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.*;
@@ -72,9 +72,8 @@ public final class CycleManager {
                 Player spectatedPlayer = Bukkit.getPlayer(spectated);
                 if (spectatedPlayer == null || !spectatedPlayer.isOnline()) return;
 
-                if (!spectatorPlayer.getWorld().equals(spectatedPlayer.getWorld())) {
+                if (!spectatorPlayer.getWorld().equals(spectatedPlayer.getWorld()))
                     spectate(spectatorPlayer, spectatedPlayer);
-                }
             });
         }, 1, 10);
     }
