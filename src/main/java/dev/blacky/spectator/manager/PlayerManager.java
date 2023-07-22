@@ -39,6 +39,7 @@ public final class PlayerManager {
     public void exclude(UUID uuid) {
         Config.add(uuid);
         excludedPlayers.add(uuid);
+        onlinePlayers.remove(uuid); // remove the player from the online list
     }
 
     public boolean isExcluded(UUID uuid) {
@@ -47,6 +48,7 @@ public final class PlayerManager {
 
     public void removeExcludedPlayer(UUID uuid) {
         excludedPlayers.remove(uuid);
+        onlinePlayers.add(uuid); // add the player to the online list
         Config.remove(uuid);
     }
 
