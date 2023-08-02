@@ -35,7 +35,7 @@ public final class OtherPlayerListeners implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void kickCyclingPlayer(PlayerKickEvent event) {
         Player player = event.getPlayer();
-        if (!spectator.getCycleManager().isSpectating(player.getUniqueId())) {
+        if (spectator.getCycleManager().isSpectating(player.getUniqueId())) {
             event.setCancelled(true);
         }
     }
